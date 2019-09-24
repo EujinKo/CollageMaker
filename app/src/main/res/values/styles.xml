@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TitleTheme">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@color/colorTextColorThemeDark</item>
+        <item name="android:fontFamily">@font/dawning_of_a_new_day</item>
+    </style>
+
 </resources>
