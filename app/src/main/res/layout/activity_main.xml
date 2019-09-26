@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackgroundThemeDark"
+    android:background="@color/colorBlack"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,6 +14,57 @@
         style="@style/TitleTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="40dp"
         android:text="@string/title_string" />
+
+    <Button
+        android:id="@+id/title_button"
+        style="@style/TitleTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDarkBlue"
+        android:text="@string/title_button"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView01"
+            android:layout_width="205dp"
+            android:layout_height="205dp"
+            android:background="@drawable/cat1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView02"
+            android:layout_width="205dp"
+            android:layout_height="205dp"
+            android:background="@drawable/cat2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView03"
+            android:layout_width="205dp"
+            android:layout_height="205dp"
+            android:background="@drawable/cat3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView01"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/imageView04"
+            android:layout_width="205dp"
+            android:layout_height="205dp"
+            android:background="@drawable/cat4"
+            app:layout_constraintTop_toBottomOf="@id/imageView02"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

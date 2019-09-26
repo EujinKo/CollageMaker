@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CollageMaker</string>
     <string name="title_string">Collage Creator</string>
+    <string name="title_button">Share with Friends</string>
 </resources>
