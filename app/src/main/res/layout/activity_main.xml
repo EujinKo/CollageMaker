@@ -34,6 +34,7 @@
 
         <ImageView
             android:id="@+id/imageView01"
+            android:onClick="captureImage"
             android:layout_width="205dp"
             android:layout_height="205dp"
             android:background="@drawable/cat1"
@@ -42,6 +43,7 @@
 
         <ImageView
             android:id="@+id/imageView02"
+            android:onClick="captureImage"
             android:layout_width="205dp"
             android:layout_height="205dp"
             android:background="@drawable/cat2"
@@ -50,6 +52,7 @@
 
         <ImageView
             android:id="@+id/imageView03"
+            android:onClick="captureImage"
             android:layout_width="205dp"
             android:layout_height="205dp"
             android:background="@drawable/cat3"
@@ -58,6 +61,7 @@
 
         <ImageView
             android:id="@+id/imageView04"
+            android:onClick="captureImage"
             android:layout_width="205dp"
             android:layout_height="205dp"
             android:background="@drawable/cat4"
