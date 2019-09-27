@@ -14,9 +14,9 @@
         style="@style/TitleTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/title_string"
         android:textSize="60dp"
-
-        android:text="@string/title_string" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/title_button"
