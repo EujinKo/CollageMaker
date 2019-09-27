@@ -35,6 +35,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/image_view_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

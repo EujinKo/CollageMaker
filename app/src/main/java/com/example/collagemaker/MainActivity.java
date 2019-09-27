@@ -1,6 +1,7 @@
 package com.example.collagemaker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
@@ -12,9 +13,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
     String currentPhotoPath = null;
     ImageView currentImageView = null;
     Uri currentPhotoUri = null;
+    Uri currentViewGroupUri = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.image_row);
+        setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -82,13 +86,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareImage(View view){
-        Bitmap bitmap = Bitmap.createBitmap(
-                view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        view.draw(canvas);
+        System.out.println("ActionSend");
 
+        saveImageGroupToUri();
 
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM,currentViewGroupUri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        shareIntent.setType("image/png");
         startActivity(shareIntent);
+    }
+
+    public void saveImageGroupToUri(){
+        ViewGroup constraintLayout = findViewById(R.id.image_view_group);
+        //creates bitmap to draw on
+        Bitmap bitmap = Bitmap.createBitmap(
+                constraintLayout.getWidth(), constraintLayout.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        //This draws the view inside the bitmap
+        constraintLayout.draw(canvas);
+
+        try{
+            File imageFile = createImageFile();
+            FileOutputStream out = new FileOutputStream(imageFile);
+            bitmap.compress(Bitmap.CompressFormat.PNG,100,out);
+
+            //Saves the uri for the view group image file
+            currentViewGroupUri = FileProvider.getUriForFile(
+                    this,"com.example.CollageMaker.FileProvider",
+                    imageFile);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }
