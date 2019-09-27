@@ -11,14 +11,16 @@
 
     <style name="TitleTheme">
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_margin">30dp</item>
+        <item name="android:layout_margin">25dp</item>
         <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center</item>
         <item name="android:fontFamily">@font/dawning_of_a_new_day</item>
     </style>
 
     <style name="ImageViewTheme">
         <item name="android:scaleType">centerCrop</item>
-
+        <item name="android:layout_width">206dp</item>
+        <item name="android:layout_height">206dp</item>
     </style>
 
 </resources>
